@@ -38,6 +38,20 @@ services:
     depends_on:
       - mall-download-model
 
+  rag-agents:
+    build: 
+      context: ./rag-agents
+      dockerfile: Dockerfile
+    ports:
+      - 8003:8000
+    environment:
+      - DMR_BASE_URL=${DMR_BASE_URL}
+      - MODEL_RUNNER_MODEL=${RAG_MODEL_RUNNER_MODEL}
+      - MODEL_RUNNER_EMBEDDING_MODEL=${RAG_MODEL_RUNNER_EMBEDDING_MODEL}
+    depends_on:
+      - rag-download-model
+      - rag-download-embedding-model
+
 
   pizza-download-model:
     image: curlimages/curl:8.12.1
@@ -66,5 +80,24 @@ services:
       # Download Chat model
       curl -s "${DMR_BASE_URL}/models/create" -d @- << EOF
       {"from": "${MALL_MODEL_RUNNER_MODEL}"}
+      EOF
+      '
+
+  rag-download-model:
+    image: curlimages/curl:8.12.1
+    entrypoint: |
+      sh -c '
+      # Download Chat model
+      curl -s "${DMR_BASE_URL}/models/create" -d @- << EOF
+      {"from": "${RAG_MODEL_RUNNER_MODEL}"}
+      EOF
+      '
+  rag-download-embedding-model:
+    image: curlimages/curl:8.12.1
+    entrypoint: |
+      sh -c '
+      # Download Chat model
+      curl -s "${DMR_BASE_URL}/models/create" -d @- << EOF
+      {"from": "${RAG_MODEL_RUNNER_EMBEDDING_MODEL}"}
       EOF
       '

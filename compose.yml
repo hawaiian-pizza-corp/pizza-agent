@@ -38,6 +38,20 @@ services:
     depends_on:
       - mall-download-model
 
+  rag-agents:
+    build: 
+      context: ./rag-agents
+      dockerfile: Dockerfile
+    ports:
+      - 8003:8000
+    environment:
+      - DMR_BASE_URL=${DMR_BASE_URL}
+      - MODEL_RUNNER_MODEL=${RAG_MODEL_RUNNER_MODEL}
+      - MODEL_RUNNER_EMBEDDING_MODEL=${RAG_MODEL_RUNNER_EMBEDDING_MODEL}
+    depends_on:
+      - rag-download-model
+      - rag-download-embedding-model
+
   pizza-download-model:
     provider:
       type: model
@@ -55,3 +69,15 @@ services:
       type: model
       options:
         model: ${MALL_MODEL_RUNNER_MODEL}
+
+  rag-download-model:
+    provider:
+      type: model
+      options:
+        model: ${RAG_MODEL_RUNNER_MODEL}
+
+  rag-download-embedding-model:
+    provider:
+      type: model
+      options:
+        model: ${RAG_MODEL_RUNNER_EMBEDDING_MODEL}
