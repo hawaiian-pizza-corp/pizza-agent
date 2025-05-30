@@ -109,9 +109,8 @@ def search_ingredient_by_name(name: str):
 # AGENT:
 root_agent = Agent(
     # SMALL LLM:
-    #model=LiteLlm(model="openai/" + os.environ.get('MODEL_RUNNER_MODEL')),
-    model=LiteLlm(model="openai/"+os.environ.get("MODEL_RUNNER_MODEL", "ai/qwen2.5:latest")),
-
+    model=LiteLlm(model="openai/" + os.environ.get('MODEL_RUNNER_MODEL')),
+    #model=LiteLlm(model="openai/"+os.environ.get("MODEL_RUNNER_MODEL", "ai/qwen2.5:latest")),
     #model=LiteLlm(model="openai/"+os.environ.get("MODEL_RUNNER_MODEL", "ai/qwen2.5:latest")),
     #model=LiteLlm(model="openai/"+os.environ.get("MODEL_RUNNER_MODEL", "ai/qwen2.5:1.5B-F16")),
 

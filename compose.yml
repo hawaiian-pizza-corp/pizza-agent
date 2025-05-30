@@ -11,7 +11,7 @@ services:
       - DMR_BASE_URL=${DMR_BASE_URL}
       - MODEL_RUNNER_MODEL=${PIZZA_MODEL_RUNNER_MODEL}
     depends_on:
-      - download-model
+      - pizza-download-model
 
   hawaiian-agents:
     build: 
@@ -24,7 +24,7 @@ services:
       - DMR_BASE_URL=${DMR_BASE_URL}
       - MODEL_RUNNER_MODEL=${HAWAIIAN_MODEL_RUNNER_MODEL}
     depends_on:
-      - download-model
+      - hawaiian-download-model
 
   mall-agents:
     build: 
@@ -36,11 +36,22 @@ services:
       - DMR_BASE_URL=${DMR_BASE_URL}
       - MODEL_RUNNER_MODEL=${MALL_MODEL_RUNNER_MODEL}
     depends_on:
-      - download-model
+      - mall-download-model
 
-  download-model:
+  pizza-download-model:
     provider:
       type: model
       options:
-        model: ${MODEL_RUNNER_MODEL}
+        model: ${PIZZA_MODEL_RUNNER_MODEL}
 
+  hawaiian-download-model:
+    provider:
+      type: model
+      options:
+        model: ${HAWAIIAN_MODEL_RUNNER_MODEL}
+
+  mall-download-model:
+    provider:
+      type: model
+      options:
+        model: ${MALL_MODEL_RUNNER_MODEL}
