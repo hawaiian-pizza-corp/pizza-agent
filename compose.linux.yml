@@ -18,9 +18,20 @@ services:
     build: 
       context: ./hawaiian-agents
       dockerfile: Dockerfile
-
     ports:
       - 8001:8000
+    environment:
+      - DMR_BASE_URL=${DMR_BASE_URL}
+      - ${MODEL_RUNNER_MODEL}=${MODEL_RUNNER_MODEL}
+    depends_on:
+      - download-model
+
+  mall-agents:
+    build: 
+      context: ./mall-agents
+      dockerfile: Dockerfile
+    ports:
+      - 8002:8000
     environment:
       - DMR_BASE_URL=${DMR_BASE_URL}
       - ${MODEL_RUNNER_MODEL}=${MODEL_RUNNER_MODEL}
