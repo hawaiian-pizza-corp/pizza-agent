@@ -30,6 +30,7 @@ docker compose --file compose.linux.yml up --build
 ```bash
 python -m venv discovery
 ```
+> choose the name you want
 
 **Activate virtual environment**:
 ```bash

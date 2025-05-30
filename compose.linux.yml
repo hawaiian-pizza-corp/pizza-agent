@@ -1,3 +1,4 @@
+# docker compose --file compose.linux.yml up --build
 services:
 
   pizza-agents:
