@@ -2,7 +2,6 @@ import os
 from google.adk.agents import Agent
 from google.adk.models.lite_llm import LiteLlm
 from google.adk.tools.mcp_tool.mcp_toolset import MCPToolset, StdioServerParameters
-from pydantic import BaseModel, Field
 
 
 # SETTINGS:
@@ -88,9 +87,6 @@ pizza_ingredients = {
 # Create a pizza as a dictionary
 my_pizza = {}
 
-# SCHEMAS:
-#class CountryInput(BaseModel):
-#    country: str = Field(description="The country to get information about.")
 
 # TOOL:
 # Pizza management with dictionary (no class)
