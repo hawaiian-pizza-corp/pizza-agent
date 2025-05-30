@@ -89,8 +89,8 @@ pizza_ingredients = {
 my_pizza = {}
 
 # SCHEMAS:
-class CountryInput(BaseModel):
-    country: str = Field(description="The country to get information about.")
+#class CountryInput(BaseModel):
+#    country: str = Field(description="The country to get information about.")
 
 # TOOL:
 # Pizza management with dictionary (no class)
