@@ -51,3 +51,9 @@ services:
     #depends_on:
     #  - rag-download-model
     #  - rag-download-embedding-model
+
+  pizza-download-model:
+    provider:
+      type: model
+      options:
+        model: ${PIZZA_MODEL_RUNNER_MODEL}
