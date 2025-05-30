@@ -1,0 +1,20 @@
+services:
+
+  bob:
+    build: 
+      context: .
+      dockerfile: Dockerfile
+
+    ports:
+      - 8000:8000
+    environment:
+      - DMR_BASE_URL=${DMR_BASE_URL}
+      - ${MODEL_RUNNER_MODEL}=${MODEL_RUNNER_MODEL}
+    depends_on:
+      - download-model
+
+  download-model:
+    provider:
+      type: model
+      options:
+        model: ${MODEL_RUNNER_MODEL}
