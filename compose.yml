@@ -10,8 +10,8 @@ services:
     environment:
       - DMR_BASE_URL=${DMR_BASE_URL}
       - MODEL_RUNNER_MODEL=${PIZZA_MODEL_RUNNER_MODEL}
-    #depends_on:
-    #  - pizza-download-model
+    depends_on:
+      - pizza-download-model
 
   hawaiian-agents:
     build: 
@@ -23,8 +23,8 @@ services:
     environment:
       - DMR_BASE_URL=${DMR_BASE_URL}
       - MODEL_RUNNER_MODEL=${HAWAIIAN_MODEL_RUNNER_MODEL}
-    #depends_on:
-    #  - hawaiian-download-model
+    depends_on:
+      - hawaiian-download-model
 
   mall-agents:
     build: 
@@ -35,8 +35,8 @@ services:
     environment:
       - DMR_BASE_URL=${DMR_BASE_URL}
       - MODEL_RUNNER_MODEL=${MALL_MODEL_RUNNER_MODEL}
-    #depends_on:
-    #  - mall-download-model
+    depends_on:
+      - mall-download-model
 
   rag-agents:
     build: 
@@ -48,12 +48,36 @@ services:
       - DMR_BASE_URL=${DMR_BASE_URL}
       - MODEL_RUNNER_MODEL=${RAG_MODEL_RUNNER_MODEL}
       - MODEL_RUNNER_EMBEDDING_MODEL=${RAG_MODEL_RUNNER_EMBEDDING_MODEL}
-    #depends_on:
-    #  - rag-download-model
-    #  - rag-download-embedding-model
+    depends_on:
+      - rag-download-model
+      - rag-download-embedding-model
 
   pizza-download-model:
     provider:
       type: model
       options:
         model: ${PIZZA_MODEL_RUNNER_MODEL}
+
+  hawaiian-download-model:
+    provider:
+      type: model
+      options:
+        model: ${HAWAIIAN_MODEL_RUNNER_MODEL}
+
+  mall-download-model:
+    provider:
+      type: model
+      options:
+        model: ${MALL_MODEL_RUNNER_MODEL}
+
+  rag-download-model:
+    provider:
+      type: model
+      options:
+        model: ${RAG_MODEL_RUNNER_MODEL}
+
+  rag-download-embedding-model:
+    provider:
+      type: model
+      options:
+        model: ${RAG_MODEL_RUNNER_EMBEDDING_MODEL}
