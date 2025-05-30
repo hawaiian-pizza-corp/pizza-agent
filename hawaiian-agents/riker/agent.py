@@ -11,7 +11,7 @@ os.environ["OPENAI_API_BASE"] = f"{os.environ.get('DMR_BASE_URL')}/engines/llama
 # AGENT:
 root_agent = Agent(
     # SMALL LLM:
-
+    #model=LiteLlm(model="openai/" + os.environ.get('MODEL_RUNNER_MODEL')),
     model=LiteLlm(model="openai/"+os.environ.get("MODEL_RUNNER_MODEL", "ai/qwen2.5:latest")),
     #model=LiteLlm(model="openai/"+os.environ.get("MODEL_RUNNER_MODEL", "ai/qwen2.5:1.5B-F16")),
 
