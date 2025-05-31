@@ -1,3 +1,6 @@
 litellm
 google-adk
-a2a-sdk
+#a2a-sdk
+langchain-core
+#langchain-litellm
+langchain-openai

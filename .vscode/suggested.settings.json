@@ -110,6 +110,14 @@
             "isWholeLine": false
         },
         {
+            "text": "HELPER:",
+            "color": "#ffffff",
+            "backgroundColor": "#236DD5",
+            "border": "1px solid #236DD5",
+            "borderRadius": "3px",
+            "isWholeLine": false
+        },
+        {
             "text": "EXAMPLE:",
             "color": "#ffffff",
             "backgroundColor": "#C51ACE",
@@ -242,6 +250,22 @@
             "color": "#ffffff",
             "backgroundColor": "#A70A0F",
             "border": "1px solid #A70A0F",
+            "borderRadius": "3px",
+            "isWholeLine": false
+        },
+        {
+            "text": "EMBEDDINGS CREATION:",
+            "color": "#ffffff",
+            "backgroundColor": "#0AA753",
+            "border": "1px solid #0AA753",
+            "borderRadius": "3px",
+            "isWholeLine": false
+        },
+        {
+            "text": "VECTOR STORE:",
+            "color": "#ffffff",
+            "backgroundColor": "#27A34F",
+            "border": "1px solid #27A34F",
             "borderRadius": "3px",
             "isWholeLine": false
         },

@@ -1,3 +1,7 @@
+# This file is used for the dockerisation of the agent
 litellm
 google-adk
-a2a-sdk
+#a2a-sdk
+langchain-core
+#langchain-litellm
+langchain-openai
