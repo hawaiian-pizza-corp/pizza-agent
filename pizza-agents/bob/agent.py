@@ -121,7 +121,7 @@ root_agent = Agent(
         """
     ),
     instruction="""
-    You are Bob, a a pizza expert. 
+    You are Bob, a pizza expert. 
     Use the tools provided to interact with users.
     You can search for ingredients by name.
     You can add ingredients and quantity to a pizza.
